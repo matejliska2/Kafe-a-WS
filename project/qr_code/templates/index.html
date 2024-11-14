@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>QR Code Registration System</h1>
+            <p>Generate a QR code to register and log in!</p>
+        </header>
+
+        <section class="content">
+            <p>Click the button below to generate a QR code that will log you in:</p>
+            <a href="{{ url_for('generate_qr_route') }}" class="btn">Generate QR Code</a>
+        </section>
+
+        <footer>
+            <p>Powered by Flask & QR Code</p>
+        </footer>
+    </div>
+</body>
+
+</html>
