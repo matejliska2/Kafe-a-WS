@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overview</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Orders Overview</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -20,33 +20,18 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example data, you can dynamically populate this table -->
+                {% for order in orders %}
                 <tr>
-                    <td>001</td>
-                    <td>John Doe</td>
-                    <td>Coffee</td>
-                    <td>2</td>
-                    <td>Pending</td>
+                    <td>{{ order.order_id }}</td>
+                    <td>{{ order.customer_name }}</td>
+                    <td>{{ order.item_ordered }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.status }}</td>
                 </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Jane Smith</td>
-                    <td>Tea</td>
-                    <td>1</td>
-                    <td>Completed</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
-
-        <div class="tabs">
-            <div class="tab">
-                <a href="index.html">Back to Main</a>
-            </div>
-            <div class="tab">
-                <a href="insert_non_admin_user.html">Go to Insert Non-Admin User</a>
-            </div>
-            <div class="tab">
-                <a href="insert_kafe_records.html">Go to Insert Kafe Records</a>
-            </div>
-        </div>
-   
+        <a href="{{ url_for('index') }}">Back to Main Menu</a>
+    </div>
+</body>
+</html>
