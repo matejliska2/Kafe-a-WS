@@ -1,0 +1,19 @@
+<h1>Priprava Records</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Kafe ID</th>
+        <th>Uzivatel ID</th>
+        <th>Datum</th>
+        <th>Pocet</th>
+    </tr>
+    {% for priprava in pripravy %}
+        <tr>
+            <td>{{ priprava.idpriprava }}</td>
+            <td>{{ priprava.kafe_idkafe }}</td>
+            <td>{{ priprava.uzivatel_iduzivatel }}</td>
+            <td>{{ priprava.datum }}</td>
+            <td>{{ priprava.pocet }}</td>
+        </tr>
+    {% endfor %}
+</table>

@@ -9,15 +9,25 @@
 <body>
     <div class="container">
         <h1>Insert Kafe Records</h1>
-        <form>
-            <label for="coffee_name">Coffee Name:</label>
-            <input type="text" id="coffee_name" name="coffee_name"><br><br>
-            <label for="coffee_price">Coffee Price:</label>
-            <input type="number" id="coffee_price" name="coffee_price"><br><br>
-            <label for="coffee_quantity">Coffee Quantity:</label>
-            <input type="number" id="coffee_quantity" name="coffee_quantity"><br><br>
-            <input type="submit" value="Insert Record">
+        <form method="POST" action="{{ url_for('insert_kafe_record') }}">
+            <h2>Select Coffee</h2>
+            {% for coffee in kafe %}
+                <div>
+                    <input type="radio" id="coffee_{{ loop.index }}" name="coffee_name" value="{{ coffee }}">
+                    <label for="coffee_{{ loop.index }}">{{ coffee }}</label>
+                </div>
+            {% endfor %}
+            <br>
+        
+            <h2>Quantity</h2>
+            <input type="range" id="coffee_quantity" name="coffee_quantity" min="1" max="100" value="50" 
+                   oninput="document.getElementById('coffee_quantity_value').innerText = this.value;">
+            <span id="coffee_quantity_value">50</span>
+            <br><br>
+        
+            <input type="submit" value="Submit">
         </form>
+        
         <a href="{{ url_for('index') }}">Back to Main Menu</a>
     </div>
 </body>
